@@ -2,8 +2,6 @@ import React from 'react';
 
 import SHOP_DATA from './shopdata.js'
 
-import './shop-page.styles.scss';
-
 import CollectionPreview from '../../components/preview component/Collection-preview.component';
 
 
