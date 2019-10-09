@@ -13,6 +13,53 @@ const config = {
     measurementId: "G-K9BJ6164F9"
 }
 
+export const createUserProfileDocument = async (userAuth ,data) => {
+    if(!userAuth) return ;
+
+    const userRef = firestore.doc(`users/${userAuth.uid}`)   //create,update and delete operations are performed on this
+
+    const snapShot = userRef.get()   //for reading the document
+
+    if(!snapShot.exists)
+    {
+        const { displayName , email } = userAuth
+        const createdAt = new Date()
+
+
+        if(displayName!== null)  //for sign-in with google (jugaad solution)
+        {
+        try {
+            await userRef.set({
+                displayName,
+                email,
+                createdAt,
+                ...data
+            })
+
+        } catch(e) {
+            console.log('Not able to create user' , e.message)
+        }
+    }
+    else {  //for sign-in with email and pwd(jugaad)
+        try {
+            await userRef.set({
+                displayName:data,
+                email,
+                createdAt,
+                ...data
+            })
+
+        } catch(e) {
+            console.log('Not able to create user' , e.message)
+        }
+
+    }
+    }
+
+    return userRef
+
+}
+
 firebase.initializeApp(config)
 
 export const auth = firebase.auth()

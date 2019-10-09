@@ -10,7 +10,7 @@ const CollectionPreview = ({title,items}) => (
         <div className="preview">
             {
                 items
-                .filter((items,idx) => idx < 4) //because we need to display only 4 on the preview page i.e why filter is used
+                .filter((item,idx) => idx < 4) //because we need to display only 4 on the preview page i.e why filter is used
                 .map(({id,name,price,imageUrl}) => (
                     <CollectionItem key={id} name={name} price={price} imageUrl={imageUrl} />
                 ))
