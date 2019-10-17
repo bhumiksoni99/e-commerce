@@ -7,6 +7,16 @@
       font-size: 28px;
       margin-bottom: 25px;
     }
+
+    .link {
+        padding:28px 0;
+        font-size:20px;
+    }
+    
+    .head {
+        display: flex;
+        justify-content: space-between;
+    }
   
     .preview {
       display: flex;

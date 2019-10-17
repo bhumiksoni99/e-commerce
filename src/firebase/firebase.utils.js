@@ -13,7 +13,7 @@ const config = {
     measurementId: "G-K9BJ6164F9"
 }
 
-export const createUserProfileDocument = async (userAuth ,data) => {
+export const createUserProfileDocument = async (userAuth ,data) => {  //userAuth object is the one in the authentication tab in the firebase console
     if(!userAuth) return ;
 
     const userRef = firestore.doc(`users/${userAuth.uid}`)   //create,update and delete operations are performed on this
@@ -57,8 +57,22 @@ export const createUserProfileDocument = async (userAuth ,data) => {
     }
 
     return userRef
-
 }
+
+//adding shop data to firebase
+
+// export const addCollectionAndDocuments = async (collectionKey , objectsToAdd) => {
+//     const collectionRef = firestore.collection(collectionKey)
+
+//     const batch = firestore.batch()    //so that all the set calls are made together
+//     objectsToAdd.forEach(obj => {
+//         const newDocRef = collectionRef.doc()    //creates a new empty doc inside the collection with a random id 
+//         batch.set(newDocRef,obj)
+//      })
+
+//      return await batch.commit()
+// }
+
 
 firebase.initializeApp(config)
 
