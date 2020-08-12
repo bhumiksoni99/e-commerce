@@ -13,7 +13,7 @@ const Directory = ({sections}) => (
         sections.map(({id,imageUrl,title,size,linkUrl }) => ( 
         <MenuItem key={id} imageUrl={imageUrl} size={size} title={title} linkUrl={linkUrl} />
                 ))
-            }
+        }
     </div>
 )   
 

@@ -4,15 +4,14 @@ import Homepage from './pages/homepage/home.component';
 import ShopPage from './pages/shop/shop.component';
 
 import Header from './components/header/header.component';
+
+import { GlobalStyles } from './global.styles';
 import SignInandSignUp from './pages/sign-in and sign-up/sign-in and sign-up.component';
 import CheckoutPage from './pages/checkout/checkout.component';
 import {Route,Switch,Redirect }  from 'react-router-dom';
 import { auth , createUserProfileDocument} from './firebase/firebase.utils';
 import {setCurrentUser} from './redux/user/user.actions';
 import { selectCurrentUser } from './redux/user/user.selectors';
-
-
-import './App.css';
 
 class App extends React.Component {
 
@@ -53,6 +52,7 @@ class App extends React.Component {
   render() {
   return (
     <div>
+      <GlobalStyles/>
       <Header />
       <Switch>      
         <Route exact path='/' component= {Homepage} />

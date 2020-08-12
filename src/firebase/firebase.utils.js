@@ -73,6 +73,27 @@ export const createUserProfileDocument = async (userAuth ,data) => {  //userAuth
 //      return await batch.commit()
 // }
 
+//fetch data from firestore, converting array returned from firestore to object
+export const convertCollectionsSnapshotToMap = (collections) => {           //transformed collection is the reqd object with all the shopdata
+    const transformedCollection = collections.docs.map(doc => {
+        const { title, items } = doc.data()
+
+        return {
+            routeName: encodeURI(title.toLowerCase()),
+            id:doc.id,
+            title,
+            items
+        }
+    })
+    
+    //convert transformedCollection from array to object
+    return transformedCollection.reduce((accumulator , collection) => {
+        accumulator[collection.title.toLowerCase()] = collection
+        return accumulator
+    }, {})           //{} indicates initial state of object
+}
+
+
 
 firebase.initializeApp(config)
 

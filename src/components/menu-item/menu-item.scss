@@ -1,6 +1,6 @@
 .menu-item {
     min-width: 30%;
-    height: 220px;
+    height: 200px;
     flex: 1 1 auto;
     display: flex;
     align-items: center;
@@ -19,10 +19,9 @@
 
         & .content {
             opacity: 0.9;
-        }
+        }  
     }
-    
-  
+     
     &:first-child {
       margin-right: 7.5px;
     }
@@ -33,6 +32,10 @@
 
     &.large {
         height:380px;
+
+        @media screen and (max-width:800px) {
+          height:200px;
+        }
     }
 
     & .background-image {
@@ -41,6 +44,8 @@
         background-size: cover;
         background-position: center;
     }
+
+   
     
    .content {
       height: 90px;

@@ -46,7 +46,7 @@ class SignUp extends React.Component {
     }catch(e) {
         console.error(e)
     }
-}
+}  
 
 handleChange = (e) => {
     const {name , value } = e.target
